@@ -11,7 +11,9 @@ Codes used in `Slovenia9YrFUP`
 	  - fixing dates 
 		- column selection
 		- wide -> long
-		- inclusion/exclusion criteria 
+		- inclusion/exclusion criteria
+	- Creating subsets of data by age groups
+   	- Creating subsets of data for co-test analysis
 - analysis_Jun2024.R
   - main analysis 
   - clean output from the analysis for tables in the manuscript  
