@@ -72,7 +72,7 @@ prev.dat30
 
 # Table 1. Baseline screening test positivity rates by four different clinically validated HPV assays used 
 # for HPV testing in women ≥30 years old and in total study population (women aged 20-64 years).
-data.frame(rbind(prev.dat30, prev.dat)) %>% write.csv(., "Results/Jun2024/Table_1.csv")
+data.frame(rbind(prev.dat30, prev.dat)) %>% write.csv(., "Table_1.csv")
 
 # -------------------
 # (2a) Show that the difference between women with normal baseline cytology and negative HPV result
@@ -127,7 +127,7 @@ rbind(year.risks(risk.results.cin2plus, "3"), year.risks(risk.results.cin3plus, 
       year.risks(risk.results.cin2plus, "9"), year.risks(risk.results.cin3plus, "3")) %>% 
   mutate(endpoint = rep(rep(c("CIN2+", "CIN3+"), each=4), 3), .before=age) %>%
   mutate(year = rep(c(3, 6, 9), each=8), .before=endpoint) %>% 
-  write.csv(., "Results/Jun2024/Table_2.csv") #CIN2+ 3/6/9 year risks
+  write.csv(., "Table_2.csv") #CIN2+ 3/6/9 year risks
 
 
 # -------------------
@@ -159,7 +159,7 @@ data.frame(t(apply(diagnostics[,2:5], 1, function(x) {
   mutate(population=rep(c("30+", "total pop"), each=10), .before = Sensitivity1) %>% 
   mutate(endpoint=rep(rep(c("CIN2+", "CIN3+"), each=5), 2), .before = Sensitivity1) %>% 
   mutate(test = rep(c("cyt", "hc2", "abb", "cob", "aly"), 4), .before = Sensitivity1) %>% 
-  write.csv(., "Results/Jun2024/Table_S1.csv")
+  write.csv(., "Table_S1.csv")
 
 # p-values:
 
@@ -397,7 +397,7 @@ concordance.total.pop.PCR <- hpv.pos.PCR %>% group_by(n.pos) %>% summarise(n = n
 # intraepithelial neoplasia grade 2 or worse (CIN2+) identified over 9-year follow-up in women ≥ 30 years old and in total study population.
 rbind(rbind(concordance.30plus, concordance.total.pop) %>% mutate(assays = rep("All 4 assays", 8), .before = n.pos) %>% mutate(endpoint = rep(c("30+", "total pop"), each=4), .before = n.pos ), 
       rbind(concordance.30plus.PCR, concordance.total.pop.PCR) %>% mutate(assays = rep("PCR assays", 6), .before = n.pos) %>%  mutate(endpoint = rep(c("30+", "total pop"), each=3), .before = n.pos )) %>% 
-  write.csv(., "Results/Jun2024/Table_3.csv")
+  write.csv(., "Table_3.csv")
 
 # -------------------
 # (8) Response to reviewers 
@@ -469,4 +469,4 @@ concordance.total.pop.PCR.cin3pl <- hpv.pos.PCR %>% group_by(n.pos) %>% summaris
 rbind(rbind(concordance.30plus.cin3pl, concordance.total.pop.cin3pl) %>% mutate(assays = rep("All 4 assays", 8), .before = n.pos) %>% mutate(endpoint = rep(c("30+", "total pop"), each=4), .before = n.pos ), 
       rbind(concordance.30plus.PCR.cin3pl, concordance.total.pop.PCR.cin3pl) %>% mutate(assays = rep("PCR assays", 6), .before = n.pos) %>%  mutate(endpoint = rep(c("30+", "total pop"), each=3), .before = n.pos )) %>% 
   mutate(endpoint = 'cin3plus', .before = assays) %>% 
-  write.csv(., "Results/Jun2024/Table_3_CIN3+.csv")
+  write.csv(., "Table_3_CIN3+.csv")
