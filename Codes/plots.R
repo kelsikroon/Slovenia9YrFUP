@@ -11,7 +11,8 @@ null_ggsurvplot$plot <- null_ggsurvplot$plot + theme_void() +theme(legend.positi
 
 # -------------------
 # (1) HPV test comparison - safety after negative HPV/ cytology test
-# Figure 1: 9 year cumulative risk of CIN2/3+ after negative baseline test for whole population and also only women >30
+# Figure 1: Cumulative risks of cervical intraepithelial neoplasia grade 2 or worse (CIN2+) and grade 3 or worse (CIN3+) by normal baseline cytology and negative baseline 
+# HPV result according to HPV assay used among women ≥ 30 years old (A, B) and in total study population (C, D). Risk bands are 95% confidence intervals. 
 ggsurvplot.risk <- function(fit, ylab, safety, tag, agegroup){
   newplot <- ggsurvplot(fit,  fun="event", break.x.by=3, surv.scale = "percent", risk.table ="nrisk_cumevents",
                          legend.labs=c("Cytology", "hc2", "RealTi*m*e", "cobas 4800", "Alinity"),xlim=c(0,9.1),
