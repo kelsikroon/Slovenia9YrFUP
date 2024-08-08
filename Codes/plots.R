@@ -36,7 +36,7 @@ cin3plot.30 <-   ggsurvplot.risk(cin3plus.fit30, "Cumulative risk of CIN3+", cin
 
 plot.list <- list(cin2plot.30, cin2plot, cin3plot.30, cin3plot)
 res <- arrange_ggsurvplots(plot.list, print = F,ncol = 2, nrow = 2, risk.table.height = 0.25) 
-ggsave("Plots/Figure_1.pdf", res, width=20, height=20, device=cairo_pdf)
+ggsave("Figure_1.pdf", res, width=20, height=20, device=cairo_pdf)
 
 # -------------------
 # (2) co-test results
@@ -62,7 +62,7 @@ cob.cotest.plot <- ggsurvplot.cotest(cob.cotest.fit, "Cumulative risk of CIN2+",
 
 cotest.plots.list <- list(hc2.cotest.plot, cob.cotest.plot, abb.cotest.plot,  aly.cotest.plot)
 res2 <- arrange_ggsurvplots(cotest.plots.list, print = F,ncol = 2, nrow = 2, risk.table.height = 0.15) 
-ggsave("Plots/Figure_2 (No CI).pdf", res2, width=25, height=25, dpi=500, device=cairo_pdf)
+ggsave("Figure_2 (No CI).pdf", res2, width=25, height=25, dpi=500, device=cairo_pdf)
 
 # -------------------
 # (3) Genotype analysis - Extended genotyping can offer better risk stratification
@@ -85,7 +85,7 @@ cin3plus.genotype.plot <- geontype.ggsurvplot(cin3plus.genotype.fit, "Cumulative
 
 genotype.plots.list <- list(cin2plus.genotype.plot30, cin2plus.genotype.plot, cin3plus.genotype.plot30, cin3plus.genotype.plot)
 res3 <- arrange_ggsurvplots(genotype.plots.list, print = F,ncol = 2, nrow = 2, risk.table.height = 0.2) 
-ggsave("Plots/Figure_3 (no CI).pdf", res3, width=20, height=20,  device=cairo_pdf)
+ggsave("Figure_3 (no CI).pdf", res3, width=20, height=20,  device=cairo_pdf)
 
 
 # -------------------
@@ -107,10 +107,10 @@ fills <- c("#999999", "#E69F00", "#56B4E9", "#009E73")
 
 total.pop.venn <- my.ggvenn(hpv.tests.list, cin2.tests.list, show_percentage_X = T, fill_color = fills, stroke_size = 0.25, text_size = 4)
 older30.venn <- my.ggvenn(hpv.tests.30list, cin2.tests.30list, show_percentage_X = T, fill_color = fills, stroke_size = 0.25, text_size = 4)
-ggsave(total.pop.venn, file="Plots/Figure_S1.png", width=7, height=5)
-ggsave(older30.venn, file="Plots/Figure_S3.png", width=7, height=5)
+ggsave(total.pop.venn, file="Figure_S1.png", width=7, height=5)
+ggsave(older30.venn, file="Figure_S3.png", width=7, height=5)
 
 PCR.total.pop.venn <- my.ggvenn(hpv.tests.list[2:4], cin2.tests.list[2:4], show_percentage_X = T, text_size = 3, fill_color = fills[2:4], stroke_size = 0.25)
 PCR.older30.venn <- my.ggvenn(hpv.tests.30list[2:4], cin2.tests.30list[2:4], show_percentage_X = T, text_size = 3, fill_color = fills[2:4], stroke_size = 0.25)
-ggsave(PCR.total.pop.venn, file="Plots/Figure_S2.png", width=7, height=5)
-ggsave(PCR.older30.venn, file="Plots/Figure_S4.png", width=7, height=5)
+ggsave(PCR.total.pop.venn, file="Figure_S2.png", width=7, height=5)
+ggsave(PCR.older30.venn, file="Figure_S4.png", width=7, height=5)
