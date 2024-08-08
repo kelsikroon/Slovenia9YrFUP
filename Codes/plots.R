@@ -91,25 +91,11 @@ ggsave("Plots/Figure_3 (no CI).pdf", res3, width=20, height=20,  device=cairo_pd
 # -------------------
 # (4) Supplementary Figures: Venn diagram of number of HPV pos test results
 source("ggvennXY.R")
-# the only inclusion criteria would be valid HPV result at baseline with all four HPV assays and 
-# at least one repeat cytology or HPV result in follow-up
-ids <- rownames(dat.incl.prev)
-hpv.tests<- apply(select(dat.incl.prev, "hc2", "abb", "aly", "cob", "cin2plus.days.cens", "cin2plus.cens", "cin3plus.days.cens", 
-                         "cin3plus.cens", "age"), 2, as.numeric) %>% as.data.frame() %>% mutate(n.pos = rowSums(.[1:4], na.rm=T))
-
-hpv.tests$n.pos <- factor(case_when(
-  hpv.tests$n.pos == 0 ~ "0 tests positive",
-  hpv.tests$n.pos == 1 ~ "1 test positive",
-  hpv.tests$n.pos == 2 ~ "2 tests positive",
-  hpv.tests$n.pos == 3 ~ "3 tests positive",
-  hpv.tests$n.pos == 4 ~ "4 tests positive",
-), levels = c("0 tests positive", "1 test positive", "2 tests positive", "3 tests positive", "4 tests positive"))
-hpv.tests$id <- ids
 
 venn.func <- function(data){
   return(list("hc2"=data$id[data$hc2==1 & data$n.pos != '0 tests positive'], 
               "Alinity"=data$id[data$aly==1 & data$n.pos != '0 tests positive'], 
-              "cobas"=data$id[data$cob==1 & data$n.pos != '0 tests positive'], 
+              "cobas 4800"=data$id[data$cob==1 & data$n.pos != '0 tests positive'], 
               "Realti*m*e"= data$id[data$abb==1 & data$n.pos != '0 tests positive']))
 }
 hpv.tests.list <- venn.func(hpv.tests)
@@ -119,8 +105,8 @@ cin2.tests.30list <- venn.func(hpv.tests[hpv.tests$age >= 30 & hpv.tests$cin2plu
 
 fills <- c("#999999", "#E69F00", "#56B4E9", "#009E73")
 
-total.pop.venn <- my.ggvenn(hpv.tests.list, cin2.tests.list, show_percentage_X = T, fill_color = fills, stroke_size = 0.25)
-older30.venn <- my.ggvenn(hpv.tests.30list, cin2.tests.30list, show_percentage_X = T, fill_color = fills, stroke_size = 0.25)
+total.pop.venn <- my.ggvenn(hpv.tests.list, cin2.tests.list, show_percentage_X = T, fill_color = fills, stroke_size = 0.25, text_size = 4)
+older30.venn <- my.ggvenn(hpv.tests.30list, cin2.tests.30list, show_percentage_X = T, fill_color = fills, stroke_size = 0.25, text_size = 4)
 ggsave(total.pop.venn, file="Plots/Figure_S1.png", width=7, height=5)
 ggsave(older30.venn, file="Plots/Figure_S3.png", width=7, height=5)
 
