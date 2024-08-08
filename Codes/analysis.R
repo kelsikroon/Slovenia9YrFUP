@@ -116,19 +116,18 @@ risk.results.cin2plus <- rbind(table.function(dat.long, "All", "cin2plus.days.ce
                                table.function(dat.long.30to59, "30-59", "cin2plus.days.cens", "cin2plus.cens"),
                                table.function(dat.long.60plus, "60+", "cin2plus.days.cens", "cin2plus.cens"))
 
-data.frame(cbind(year.risks(risk.results.cin2plus, "3"), 
-                 year.risks(risk.results.cin2plus, "6"), 
-                 year.risks(risk.results.cin2plus, "9"))) %>% write.csv(., "Results/Jun2024/risksCIN2+_Jun2021.csv") #CIN2+ 3/6/9 year risks
-
 risk.results.cin3plus <- rbind(table.function(dat.long, "All", "cin3plus.days.cens", "cin3plus.cens"),
                                table.function(dat.long.20to30, "20-29", "cin3plus.days.cens", "cin3plus.cens"),
                                table.function(dat.long.30to59, "30-59", "cin3plus.days.cens", "cin3plus.cens"),
                                table.function(dat.long.60plus, "60+", "cin3plus.days.cens", "cin3plus.cens"))
 
-data.frame(cbind(year.risks(risk.results.cin3plus, "3"), 
-                 year.risks(risk.results.cin3plus, "6"),
-                 year.risks(risk.results.cin3plus, "9"))) %>%  write.csv(., "Results/Jun2024/risksCIN3+_Jun2024.csv") #CIN3+ 3/6/9 year risks
 
+rbind(year.risks(risk.results.cin2plus, "3"), year.risks(risk.results.cin3plus, "3"),
+      year.risks(risk.results.cin2plus, "6"), year.risks(risk.results.cin3plus, "3"),
+      year.risks(risk.results.cin2plus, "9"), year.risks(risk.results.cin3plus, "3")) %>% 
+  mutate(endpoint = rep(rep(c("CIN2+", "CIN3+"), each=4), 3), .before=age) %>%
+  mutate(year = rep(c(3, 6, 9), each=8), .before=endpoint) %>% 
+  write.csv(., "Results/Jun2024/Table_2.csv") #CIN2+ 3/6/9 year risks
 
 
 # -------------------
