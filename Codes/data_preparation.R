@@ -225,7 +225,7 @@ create.cotest.data <- function(data, test){
     test == "hc2" ~ "hc2 negative",
     test == "abb" ~ "RealTi*m*e negative",
     test == "aly" ~ "Alinity negative",
-    test == "cob" ~ "cobas 4800 negative"
+    test == "cob" ~ "cobas_4800 negative"
   )
   
   new_dat <- rbind(cyt.neg, hpv.neg, cotest.neg)
