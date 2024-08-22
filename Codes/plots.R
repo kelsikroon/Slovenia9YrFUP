@@ -15,7 +15,7 @@ null_ggsurvplot$plot <- null_ggsurvplot$plot + theme_void() +theme(legend.positi
 # HPV result according to HPV assay used among women ≥ 30 years old (A, B) and in total study population (C, D). Risk bands are 95% confidence intervals. 
 ggsurvplot.risk <- function(fit, ylab, safety, tag, agegroup){
   newplot <- ggsurvplot(fit,  fun="event", break.x.by=3, surv.scale = "percent", risk.table ="nrisk_cumevents",
-                         legend.labs=c("Cytology", "hc2", "RealTi*m*e", "cobas 4800", "Alinity"),xlim=c(0,9.1),
+                         legend.labs=c("Cytology", "hc2", "RealTi*m*e", "cobas_4800", "Alinity"),xlim=c(0,9.1),
                          legend.title="", ylab=ylab, xlab='Time (years)', tables.theme = theme_cleantable(),
                          conf.int=T, ylim=c(0,0.032), font.x = 20, font.y=20, font.tickslab=20, risk.table.fontsize=5)
   
