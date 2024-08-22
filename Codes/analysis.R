@@ -309,8 +309,8 @@ surv.9year(cin3plus.genotype.fit30)
 
 # -------------------
 # (7) 9-year risk after Npos test results
-ids <- rownames(dat.incl[!is.na(dat.incl$hc2) & !is.na(dat.incl$abb) & !is.na(dat.incl$aly) &!is.na(dat.incl$cob), ])
-hpv.tests<- apply(select(dat.incl[!is.na(dat.incl$hc2) & !is.na(dat.incl$abb) & !is.na(dat.incl$aly) &!is.na(dat.incl$cob), ],
+ids <- rownames(dat.full[inclusion & !is.na(dat.full$hc2) & !is.na(dat.full$abb) & !is.na(dat.full$aly) &!is.na(dat.full$cob), ])
+hpv.tests<- apply(select(dat.full[inclusion & !is.na(dat.full$hc2) & !is.na(dat.full$abb) & !is.na(dat.full$aly) &!is.na(dat.full$cob), ],
                          "hc2", "abb", "aly", "cob", "cin2plus.days.cens", "cin2plus.cens", "cin2plus",  "cin3plus.days.cens", "cin3plus.cens", "age"), 2, as.numeric) %>% 
   as.data.frame() %>% mutate(n.pos = rowSums(.[1:4], na.rm=T))
 
