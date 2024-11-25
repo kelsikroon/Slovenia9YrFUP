@@ -1,0 +1,15 @@
+"","assays","population","n.pos","n","N","perc","lower","upper","n.cin2pl","N.cin2pl","perc.cin2pl","lower.cin2pl","upper.cin2pl"
+"1","All 4 assays","30+","1 test positive",94,347,27.1,22.7,32,3,77,3.9,1.3,10.8
+"2","All 4 assays","30+","2 tests positive",24,347,6.9,4.7,10.1,1,77,1.3,0.2,7
+"3","All 4 assays","30+","3 tests positive",23,347,6.6,4.5,9.7,3,77,3.9,1.3,10.8
+"4","All 4 assays","30+","4 tests positive",206,347,59.4,54.1,64.4,70,77,90.9,82.4,95.5
+"5","All 4 assays","total pop","1 test positive",152,673,22.6,19.6,25.9,6,121,5,2.3,10.4
+"6","All 4 assays","total pop","2 tests positive",44,673,6.5,4.9,8.7,1,121,0.8,0.1,4.5
+"7","All 4 assays","total pop","3 tests positive",37,673,5.5,4,7.5,6,121,5,2.3,10.4
+"8","All 4 assays","total pop","4 tests positive",440,673,65.4,61.7,68.9,108,121,89.3,82.5,93.6
+"9","PCR assays","30+","1 test positive",47,284,16.5,12.7,21.3,2,76,2.6,0.7,9.1
+"10","PCR assays","30+","2 tests positive",17,284,6,3.8,9.4,1,76,1.3,0.2,7.1
+"11","PCR assays","30+","3 tests positive",220,284,77.5,72.3,81.9,73,76,96.1,89,98.6
+"12","PCR assays","total pop","1 test positive",76,570,13.3,10.8,16.4,4,119,3.4,1.3,8.3
+"13","PCR assays","total pop","2 tests positive",32,570,5.6,4,7.8,3,119,2.5,0.9,7.2
+"14","PCR assays","total pop","3 tests positive",462,570,81.1,77.6,84.1,112,119,94.1,88.4,97.1
